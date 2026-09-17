@@ -14,11 +14,14 @@ For each: what was wrong, **why** it was wrong, and how I fixed it.
 
 4. Hydration mismatch caused by dynamic time *Last updated at {new Date().toLocaleTimeString()}*. In Next.js, the initial HTML can be rendered on the server and then hydrated on the client. *new Date()* can return a different time between the server render and client render. I fixed it by moving the time generation into a *client-side useEffect* and stored it in state.
 
-5. Even though *loading* is *true* but it still display the **No Products match your filters** text. This could confuse users because the products had not finished loading yet. So I fixed it by conditionally rendering the product grid based on the loading and error states..
+5. Even though *loading* is *true* but it still display the **No Products match your filters** text. This could confuse users because the products had not finished loading yet. So I fixed it by conditionally rendering the product grid based on the loading and error states.
+
+6. The `visibleProducts` filtering logic was recalculated on every component re-render, even when the products, search term, and category had not changed. I fixed this by wrapping the calculation in `useMemo`, so it only recalculates when `products`, `search`, or `category` changes. This avoids unnecessary filtering during unrelated re-renders.
 
 ## Features I completed
 
--
+- Render the error state when request fails.
+- 
 
 ## Decisions
 

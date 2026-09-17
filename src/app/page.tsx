@@ -19,15 +19,18 @@ export default function HomePage() {
     return ["all", ...Array.from(unique)];
   }, [products]);
 
-  const visibleProducts = products.filter((product) => {
-    const matchesCategory = category === "all" || product.category === category;
+  const visibleProducts = useMemo(() => {
+    return products.filter((product) => {
+      const matchesCategory =
+        category === "all" || product.category === category;
 
-    const matchesSearch = product.title
-      .toLowerCase()
-      .includes(search.toLowerCase());
+      const matchesSearch = product.title
+        .toLowerCase()
+        .includes(search.toLowerCase());
 
-    return matchesCategory && matchesSearch;
-  });
+      return matchesCategory && matchesSearch;
+    });
+  }, [search, category, products]);
 
   useEffect(() => {
     setLastUpdatedDate(new Date().toLocaleTimeString());
