@@ -31,6 +31,8 @@ Anywhere I had to choose between options — and why I chose what I did.
 
 - Used *product.id* instead of the array index as the React key in **ProductGrid** because product ids because it's helps React correctly preserve each product component and prevents unnecessary remounts. The index is used only to stagger the entrance animation.
 
+- Specify *Product* type for fetched data in useProducts hook
+
 ## With more time
 
 What I'd improve or add next.

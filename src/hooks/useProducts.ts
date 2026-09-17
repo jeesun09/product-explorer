@@ -20,7 +20,7 @@ export function useProducts() {
         if (!res.ok) {
           throw new Error(`Request failed with status ${res.status}`);
         }
-        const data: any = await res.json();
+        const data: Product[] = await res.json();
         if (!cancelled) {
           setProducts(data);
         }
