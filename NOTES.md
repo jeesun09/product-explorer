@@ -37,4 +37,6 @@ Anywhere I had to choose between options — and why I chose what I did.
 
 What I'd improve or add next.
 
--
+- Replace the regular *<img>* element with Next.js *<Image>* for optimized image loading, responsive sizing, and better performance.
+
+- Store the search and category filter values in URL search parameters so filtered results can be bookmarked and shared through a link.
